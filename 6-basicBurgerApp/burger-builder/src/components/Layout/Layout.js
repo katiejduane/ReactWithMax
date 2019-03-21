@@ -9,7 +9,7 @@ const layout = (props) => (
         <main className="Content">
                 {props.children}
         </main>
-        <Footer />
+        {/* <Footer /> */}
     </Aux >
 )
 
