@@ -6,7 +6,6 @@ const navItems = () => (
     <ul className="NavItems">
         <NavItem link="/" active>Burger Builder</NavItem>
         <NavItem link="/">Checkout</NavItem>
-
     </ul>
 )
 

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Logo from '../../Logo/Logo';
-import NavigationItems from '../NavItems/NavItems';
+import NavItems from '../NavItems/NavItems';
 import './SideDrawer.css';
 import Backdrop from '../../UI/Backdrop/Backdrop';
 import Aux from '../../../hoc/Aux/Aux'
@@ -13,16 +13,18 @@ const sideDrawer = (props) => {
         attachedClasses = ["SideDrawer", "Open"]
     }
 
-    return(
-        <Aux>
+    return (
+      <Aux>
         <Backdrop show={props.open} clicked={props.closed} />
-        <div className={attachedClasses.join(' ')}>
-            <Logo height="11%"/>
-            <nav>
-                <NavigationItems />
-            </nav>
+        <div className={attachedClasses.join(" ")}>
+          <div className="SideDrawerLogo">
+            <Logo />
+          </div>
+          <nav>
+            <NavItems />
+          </nav>
         </div>
-        </Aux >
+      </Aux>
     );
 
 }

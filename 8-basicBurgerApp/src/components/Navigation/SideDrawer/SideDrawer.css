@@ -26,10 +26,10 @@
     transform: translateX(-100%);
 }
 
-/* .Logo {
+.SideDrawerLogo {
     margin-bottom: 32px;
     height: 11%;
-} */
+}
 
 @media (max-width: 499px){
     .DesktopOnly{
