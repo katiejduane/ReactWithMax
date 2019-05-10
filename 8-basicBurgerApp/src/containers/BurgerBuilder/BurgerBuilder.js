@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import Aux from '../../hoc/Aux/Aux';
 import Burger from '../../components/Burger/Burger';
 import BuildControls from '../../components/Burger/BuildControls/BuildControls';
@@ -6,6 +7,7 @@ import Modal from '../../components/UI/Modal/Modal';
 import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary';
 import Spinner from '../../components/UI/Spinner/Spinner';
 import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
+import * as actionTypes from '../../store/actions';
 
 import axios from '../../axios-orders';
 
@@ -28,15 +30,16 @@ class BurgerBuilder extends Component{
     }
 
     componentDidMount(){
-        axios.get(
-          "https://burgerbuilder-c4d28.firebaseio.com/ingredients.json"
-        )
-        .then(response => {
-            this.setState({ingredients: response.data})
-        })
-        .catch(error => {
-            this.setState({error: true})
-        })
+        console.log(this.props);
+        // axios.get(
+        //   "https://burgerbuilder-c4d28.firebaseio.com/ingredients.json"
+        // )
+        // .then(response => {
+        //     this.setState({ingredients: response.data})
+        // })
+        // .catch(error => {
+        //     this.setState({error: true})
+        // })
     }
 
     updatePurchaseState (ingredients) {
@@ -153,5 +156,19 @@ class BurgerBuilder extends Component{
         ); 
     }
 }
+
+const mapStateToProps = state => {
+    return {
+        ings: state.ingredients
+    }
+}
+
+const mapDispathToProps = dispatch => {
+    return {
+        onIngredientAdded: (ingName) => dispatch({type: actionTypes.ADD_INGREDIENTS, ingredientName: ingName}),
+        onIngredientAdded: (ingName) => dispatch({type: actionTypes.ADD_INGREDIENTS, ingredientName: ingName})
+    }
+}
+
 
 export default withErrorHandler(BurgerBuilder, axios);
