@@ -11,6 +11,7 @@ const input = (props) => {
 
     switch(props.elementType){
         case('input'):
+        inputClasses.push('input-input')
             inputElement = <input 
             className={inputClasses.join(' ')}
             {...props.elementConfig}
